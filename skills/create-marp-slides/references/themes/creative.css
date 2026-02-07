@@ -1,0 +1,120 @@
+/* @theme creative */
+@import "_base";
+
+/* Creative: Gradients, rounded shapes, playful shadows
+ * Design concept: Energy, inspiration, bold expression
+ */
+
+section {
+  --color-primary: #667eea;
+  --color-secondary: #764ba2;
+  --color-dark: #2d3436;
+  --color-medium: #6c757d;
+  --color-light: #dee2e6;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --color-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: "Noto Sans JP", "Hiragino Sans", "Meiryo", sans-serif;
+  color: var(--color-dark);
+  background: var(--color-bg);
+  padding: 50px;
+  line-height: 1.8;
+}
+
+/* --- Headings: gradient underline --- */
+h1 {
+  color: var(--color-primary);
+  font-size: 2.2em;
+  background: var(--color-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h2 {
+  color: var(--color-primary);
+  font-size: 1.7em;
+  padding-bottom: 8px;
+  border-image: var(--color-gradient) 1;
+  border-bottom: 3px solid;
+}
+h3 { color: var(--color-dark); font-size: 1.3em; }
+
+/* --- Links & Text --- */
+a { color: var(--color-primary); }
+ul, ol { color: var(--color-dark); }
+li { margin-bottom: 0.4em; }
+li::marker { color: var(--color-secondary); }
+strong { color: var(--color-secondary); }
+
+/* --- Inline code --- */
+code {
+  background: color-mix(in srgb, var(--color-primary) 8%, white);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+/* --- Code blocks --- */
+pre {
+  background: var(--color-bg-alt);
+  border-radius: 12px;
+  border-left: 4px solid;
+  border-image: var(--color-gradient) 1;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+}
+pre code { background: transparent; }
+
+/* --- Blockquote: gradient bar with rounded card --- */
+blockquote {
+  border: none;
+  border-left: 4px solid;
+  border-image: var(--color-gradient) 1;
+  background: color-mix(in srgb, var(--color-primary) 5%, white);
+  margin: 1em 0;
+  padding: 20px 24px;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.08);
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* --- Table: gradient header --- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95em;
+  border-radius: 8px;
+  overflow: hidden;
+}
+th {
+  background: var(--color-gradient);
+  color: white;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+}
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-light);
+}
+tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--color-primary) 3%, white);
+}
+
+/* --- Horizontal rule: gradient --- */
+hr {
+  border: none;
+  height: 3px;
+  background: var(--color-gradient);
+  border-radius: 2px;
+  margin: 2em 0;
+}
+
+/* --- Pagination --- */
+section::after {
+  font-size: 0.75em;
+  color: white;
+  background: var(--color-gradient);
+  padding: 4px 14px;
+  border-radius: 12px;
+}

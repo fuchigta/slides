@@ -1,0 +1,109 @@
+/* @theme corporate */
+@import "_base";
+
+/* Corporate: Clean lines, professional shadows, structured borders
+ * Design concept: Trust, clarity, precision
+ */
+
+section {
+  --color-primary: #0984e3;
+  --color-secondary: #74b9ff;
+  --color-dark: #2d3436;
+  --color-medium: #636e72;
+  --color-light: #dfe6e9;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f6fa;
+  --color-gradient: linear-gradient(135deg, #0984e3 0%, #74b9ff 100%);
+  font-family: "Noto Sans JP", "Hiragino Sans", "Meiryo", sans-serif;
+  color: var(--color-dark);
+  background: var(--color-bg);
+  padding: 50px;
+  line-height: 1.8;
+}
+
+/* --- Headings: clean underline accent --- */
+h1 {
+  color: var(--color-primary);
+  font-size: 2.2em;
+  border-bottom: 3px solid var(--color-primary);
+  padding-bottom: 10px;
+}
+h2 {
+  color: var(--color-primary);
+  font-size: 1.7em;
+  border-bottom: 2px solid var(--color-light);
+  padding-bottom: 8px;
+}
+h3 { color: var(--color-dark); font-size: 1.3em; }
+
+/* --- Links & Text --- */
+a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+ul, ol { color: var(--color-dark); }
+li { margin-bottom: 0.4em; }
+li::marker { color: var(--color-primary); }
+strong { color: var(--color-primary); }
+
+/* --- Inline code --- */
+code {
+  background: var(--color-bg-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--color-light);
+}
+
+/* --- Code blocks --- */
+pre {
+  background: #f8f9fa;
+  border: 1px solid var(--color-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+pre code { background: transparent; border: none; }
+
+/* --- Blockquote: left-bar accent --- */
+blockquote {
+  border-left: 4px solid var(--color-primary);
+  background: var(--color-bg-alt);
+  margin: 1em 0;
+  padding: 16px 24px;
+  border-radius: 0 8px 8px 0;
+  color: var(--color-dark);
+  font-style: normal;
+}
+blockquote p { margin: 0; }
+
+/* --- Table: clean grid --- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95em;
+}
+th {
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+}
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-light);
+}
+tr:nth-child(even) td { background: var(--color-bg-alt); }
+
+/* --- Horizontal rule --- */
+hr {
+  border: none;
+  height: 2px;
+  background: var(--color-light);
+  margin: 2em 0;
+}
+
+/* --- Pagination --- */
+section::after {
+  font-size: 0.75em;
+  color: var(--color-medium);
+  padding: 4px 12px;
+  border-top: 2px solid var(--color-primary);
+}

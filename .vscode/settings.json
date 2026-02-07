@@ -1,0 +1,11 @@
+{
+    "markdown.marp.themes": [
+        "./skills/create-marp-slides/references/themes/_base.css",
+        "./skills/create-marp-slides/references/themes/corporate.css",
+        "./skills/create-marp-slides/references/themes/creative.css",
+        "./skills/create-marp-slides/references/themes/minimal.css",
+        "./skills/create-marp-slides/references/themes/tech.css"
+    ],
+    "markdown.marp.exportType": "html",
+    "markdown.marp.html": "all"
+}

@@ -1,0 +1,78 @@
+# slides
+
+Marpを使った美しいスライド作成プラグイン for Claude Code。
+
+ユーザーのメッセージや原稿から、テーマとレイアウトパターンを適用したプロフェッショナルなプレゼンテーションを生成します。
+
+## 前提条件
+
+- [marp-cli](https://github.com/marp-team/marp-cli)（グローバルインストールまたはnpx経由）
+- [playwright-cli](https://github.com/anthropics/playwright-cli)（スライドプレビュー用）
+
+```bash
+npm install -g @marp-team/marp-cli
+npm install -g @anthropic-ai/playwright-cli@latest
+```
+
+## インストール
+
+Claude Code のプラグインとして追加:
+
+```bash
+claude plugin add /path/to/slides
+```
+
+## 使い方
+
+### スライド作成
+
+「スライドを作って」「プレゼン資料を作成」などと指示すると `create-marp-slides` スキルが起動します。
+
+### 原稿からの変換
+
+原稿ファイル（.md, .txt）のパスを指定すると、内容を分析してスライドに変換します。
+
+### エクスポート
+
+```bash
+bash scripts/marp_export.sh slides.md --format pdf
+bash scripts/marp_export.sh slides.md --format html --output preview.html
+bash scripts/marp_export.sh slides.md --format pptx
+bash scripts/marp_export.sh slides.md --format png
+bash scripts/marp_export.sh slides.md --format images --output ./slides/
+```
+
+## テーマ
+
+テーマは外部CSSファイルとして定義されており、frontmatterで指定します:
+
+```yaml
+---
+marp: true
+theme: corporate
+paginate: true
+---
+```
+
+| テーマ    | CSS ファイル      | 特徴                             | 用途                           |
+| --------- | ----------------- | -------------------------------- | ------------------------------ |
+| Corporate | `corporate.css`   | クリーンなライン、構造的ボーダー | ビジネス、クライアント向け     |
+| Creative  | `creative.css`    | グラデーション装飾、丸みシェイプ | マーケティング、カンファレンス |
+| Tech      | `tech.css`        | ダークモード、グロー効果         | 技術プレゼン、開発者向け       |
+| Minimal   | `minimal.css`     | タイポグラフィ重視、余白活用     | 汎用、シンプルな発表           |
+
+エクスポートスクリプト（`marp_export.sh`）が `--theme-set` で自動的にテーマディレクトリを登録するため、追加設定は不要です。
+
+## レイアウト
+
+16種類のレイアウトパターンを提供:
+
+- **Basic**（5種）: Title, Section Divider, Content, Two Column, Image
+- **Business**（5種）: Comparison Table, Stats Grid, Timeline, Org Chart, Quote
+- **Tech**（6種）: Code Block, Architecture, Demo, Asymmetric, Icon Grid, Summary
+
+すべてのレイアウトはCSS変数ベースで、どのテーマとも組み合わせ可能です。
+
+## ライセンス
+
+MIT

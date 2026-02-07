@@ -1,0 +1,115 @@
+/* @theme tech */
+@import "_base";
+
+/* Tech: Dark mode, glow effects, terminal aesthetic
+ * Design concept: Precision, cutting-edge, developer-friendly
+ */
+
+section {
+  --color-primary: #89b4fa;
+  --color-secondary: #a6e3a1;
+  --color-dark: #cdd6f4;
+  --color-medium: #a6adc8;
+  --color-light: #45475a;
+  --color-bg: #1e1e2e;
+  --color-bg-alt: #313244;
+  --color-gradient: linear-gradient(135deg, #89b4fa 0%, #b4befe 100%);
+  font-family: "Noto Sans JP", "Hiragino Sans", "Meiryo", sans-serif;
+  color: var(--color-dark);
+  background: var(--color-bg);
+  padding: 50px;
+  line-height: 1.8;
+}
+
+/* --- Headings: glow accent --- */
+h1 {
+  color: var(--color-primary);
+  font-size: 2.2em;
+  text-shadow: 0 0 20px rgba(137, 180, 250, 0.3);
+}
+h2 {
+  color: var(--color-primary);
+  font-size: 1.7em;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-light);
+}
+h3 { color: var(--color-secondary); font-size: 1.3em; }
+
+/* --- Links & Text --- */
+a { color: var(--color-primary); text-decoration: underline; text-decoration-color: rgba(137, 180, 250, 0.4); text-underline-offset: 3px; }
+ul, ol { color: var(--color-dark); }
+li { margin-bottom: 0.4em; }
+li::marker { color: var(--color-secondary); }
+strong { color: var(--color-secondary); }
+
+/* --- Inline code --- */
+code {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--color-light);
+}
+
+/* --- Code blocks: terminal style --- */
+pre {
+  background: #181825;
+  border: 1px solid var(--color-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+pre code { background: transparent; border: none; color: var(--color-dark); }
+
+/* --- Blockquote: bordered card with glow --- */
+blockquote {
+  border-left: 3px solid var(--color-primary);
+  background: var(--color-bg-alt);
+  margin: 1em 0;
+  padding: 16px 24px;
+  border-radius: 0 8px 8px 0;
+  color: var(--color-dark);
+  font-style: normal;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+blockquote p { margin: 0; }
+
+/* --- Table: dark grid --- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95em;
+}
+th {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--color-primary);
+}
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-light);
+  color: var(--color-dark);
+}
+tr:nth-child(even) td { background: rgba(49, 50, 68, 0.5); }
+
+/* --- Horizontal rule: subtle glow --- */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--color-light);
+  box-shadow: 0 0 8px rgba(137, 180, 250, 0.2);
+  margin: 2em 0;
+}
+
+/* --- Pagination --- */
+section::after {
+  font-size: 0.75em;
+  color: var(--color-medium);
+  background: var(--color-bg-alt);
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--color-light);
+}
