@@ -281,16 +281,17 @@ section.quote-slide {
   max-width: 900px;
   line-height: 1.5;
   position: relative;
-  padding: 0 40px;
+  padding: 20px 40px 0 60px;
 }
 .quote-text::before {
   content: '\201C';
-  font-size: 4em;
+  font-size: 3em;
   color: var(--color-primary);
   position: absolute;
-  left: -20px;
-  top: -30px;
-  opacity: 0.6;
+  left: 0;
+  top: -10px;
+  opacity: 0.5;
+  line-height: 1;
 }
 .quote-author {
   font-size: 1.3em;

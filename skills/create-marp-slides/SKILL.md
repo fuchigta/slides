@@ -165,31 +165,45 @@ section {
 
 ## Design Review Process
 
-スライド生成後、自律的にデザインを検証・修正するプロセス:
+スライド生成後、自律的にデザインを検証・修正するプロセス。
+
+**重要**: プレビュー用の一時ファイル（HTML出力等）はscratchpadディレクトリに出力し、プロジェクトディレクトリを汚さないこと。
 
 ### Step 1: HTML出力
 
+scratchpadディレクトリにHTMLを出力する:
+
 ```bash
-bash skills/create-marp-slides/scripts/marp_export.sh <input.md> --format html
+bash skills/create-marp-slides/scripts/marp_export.sh <input.md> --format html --output <scratchpad>/preview.html
 ```
 
 ### Step 2: HTTPサーバー起動
 
 **重要**: `file://`プロトコルはplaywright-cliでブロックされるため、HTTPサーバー経由でプレビューする。
 
+Bashツールの`run_in_background`パラメータを使って起動する（シェルの`&`ではなく）:
+
 ```bash
-python -m http.server 8765 &
+# Bashツールで run_in_background: true を指定して実行
+cd <scratchpad> && python -m http.server 8765
 ```
 
 ### Step 3: ブラウザプレビュー
 
 ```bash
-playwright-cli open http://localhost:8765/<output>.html
+playwright-cli open http://localhost:8765/preview.html
 ```
 
 ### Step 4: スクリーンショット確認
 
-`playwright-cli screenshot`で各スライドをキャプチャし、`Read`ツールで画像を確認する。
+`playwright-cli screenshot --filename <path>`で各スライドをキャプチャし、`Read`ツールで画像を確認する。
+
+**重要**: `--filename`オプションでscratchpadディレクトリ内にパスを指定すること。指定しないとカレントディレクトリに自動命名で保存される。
+
+```bash
+# スクリーンショット取得 → Readツールで確認
+playwright-cli screenshot --filename <scratchpad>/slide-1.png
+```
 
 確認観点（発生しやすい問題）:
 - **レイアウト崩れ**: グリッドレイアウト（two-column, stats-grid等）が縦積みになっていないか
@@ -198,17 +212,16 @@ playwright-cli open http://localhost:8765/<output>.html
 - **テキストの切れ・はみ出し**: スライド領域を超えていないか
 - **余白・間隔のバランス**
 
-スライド間の遷移（**キー名は大文字小文字を区別する**）:
+スライド間の遷移（**キー名は大文字小文字を区別する**）。`&&`でチェーンすると効率的:
 
 ```bash
-playwright-cli press ArrowRight
-playwright-cli screenshot
+playwright-cli press ArrowRight && playwright-cli screenshot --filename <scratchpad>/slide-2.png
 ```
 
 特定スライドへのジャンプ:
 
 ```bash
-playwright-cli goto "http://localhost:8765/<output>.html#<N>"
+playwright-cli goto "http://localhost:8765/preview.html#<N>"
 ```
 
 修正後は再エクスポートしてリロード:
@@ -223,22 +236,22 @@ playwright-cli reload
 
 ### Step 6: クリーンアップ
 
-検証完了後、ブラウザとHTTPサーバーを停止し、プレビュー用HTMLを削除する:
+検証完了後、ブラウザを閉じ、バックグラウンドのHTTPサーバーを`TaskStop`ツールで停止する:
 
 ```bash
 playwright-cli close
-pkill -f "python -m http.server 8765"
-rm -f preview.html
 ```
+
+HTTPサーバーはBashツールの`run_in_background`で起動しているため、`TaskStop`ツールでタスクIDを指定して停止する。
 
 ### playwright-cli Command Reference
 
 | コマンド | 説明 |
 |----------|------|
-| `playwright-cli open [url]` | ブラウザを開く（URL省略可） |
+| `playwright-cli open [url]` | ブラウザを開く（URL省略可。他コマンドの前に必要） |
 | `playwright-cli goto <url>` | URLに遷移（`#N`でスライド指定可） |
 | `playwright-cli reload` | ページをリロード |
-| `playwright-cli screenshot [ref]` | スクリーンショット取得 |
+| `playwright-cli screenshot [ref]` | スクリーンショット取得（`--filename <path>` でパス指定、`--full-page` でフルページ） |
 | `playwright-cli press <key>` | キーボード操作（`ArrowRight`, `ArrowLeft`等、大文字小文字区別あり） |
 | `playwright-cli close` | ブラウザを閉じる |
 

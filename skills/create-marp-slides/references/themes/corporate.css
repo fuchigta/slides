@@ -90,8 +90,6 @@ td {
   padding: 10px 16px;
   border-bottom: 1px solid var(--color-light);
 }
-tr:nth-child(even) td { background: var(--color-bg-alt); }
-
 /* --- Horizontal rule --- */
 hr {
   border: none;
@@ -102,8 +100,7 @@ hr {
 
 /* --- Pagination --- */
 section::after {
-  font-size: 0.75em;
+  font-size: 0.7em;
   color: var(--color-medium);
-  padding: 4px 12px;
-  border-top: 2px solid var(--color-primary);
+  padding: 4px 8px;
 }
