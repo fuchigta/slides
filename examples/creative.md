@@ -6,7 +6,7 @@ paginate: true
 
 <!-- _class: title-slide -->
 
-# テーマ＆デザインガイド
+# テーマ＆<br>デザインガイド
 
 slides プラグインのビジュアルシステム
 
@@ -26,22 +26,22 @@ slides プラグインのビジュアルシステム
   <div class="icon-item">
     <div class="icon-circle">💼</div>
     <h4>Corporate</h4>
-    <p>ビジネス向けの信頼感あるデザイン</p>
+    <p>ビジネス向けの<br>信頼感あるデザイン</p>
   </div>
   <div class="icon-item">
     <div class="icon-circle">🎨</div>
     <h4>Creative</h4>
-    <p>グラデーションが映えるクリエイティブなデザイン</p>
+    <p>グラデーションが映える<br>創造的なデザイン</p>
   </div>
   <div class="icon-item">
     <div class="icon-circle">💻</div>
     <h4>Tech</h4>
-    <p>ダークモードの開発者向けデザイン</p>
+    <p>ダークモードの<br>開発者向けデザイン</p>
   </div>
   <div class="icon-item">
     <div class="icon-circle">✨</div>
     <h4>Minimal</h4>
-    <p>余白を活かしたシンプルなデザイン</p>
+    <p>余白を活かした<br>シンプルなデザイン</p>
   </div>
 </div>
 
@@ -77,6 +77,6 @@ slides プラグインのビジュアルシステム
 <!-- _class: quote-slide -->
 
 <div class="quote-text">
-良いデザインとは、可能な限り少ないデザインである
+良いデザインとは、<br>可能な限り少ないデザインである
 </div>
 <div class="quote-author">— Dieter Rams</div>

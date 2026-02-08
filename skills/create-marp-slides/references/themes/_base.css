@@ -206,14 +206,15 @@ section.image-slide h1 { font-size: 2.5em; border: none; border-bottom: none; }
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -32px;
-  top: 6px;
+  left: -23.5px;
+  top: 0.7em;
   width: 14px;
   height: 14px;
   background: var(--color-primary);
   border-radius: 50%;
   border: 3px solid var(--color-bg);
   box-shadow: 0 0 0 2px var(--color-primary);
+  transform: translate(-50%, -50%);
 }
 .timeline-item h4 {
   color: var(--color-primary);
@@ -387,6 +388,7 @@ section.demo-slide h2 {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .demo-image img { width: 100%; display: block; }
+.demo-image pre { border: none; box-shadow: none; border-radius: 0; }
 .demo-notes {
   padding: 15px;
 }
@@ -486,3 +488,7 @@ section.summary-slide h1 {
 .key-point-text {
   font-size: 1.2em;
 }
+
+/* --- Utility Classes --- */
+
+.small { font-size: 0.85em !important; }
