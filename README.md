@@ -7,11 +7,9 @@ Marpを使った美しいスライド作成プラグイン for Claude Code。
 ## 前提条件
 
 - [marp-cli](https://github.com/marp-team/marp-cli)（グローバルインストールまたはnpx経由）
-- [playwright-cli](https://github.com/anthropics/playwright-cli)（スライドプレビュー用）
 
 ```bash
 npm install -g @marp-team/marp-cli
-npm install -g @anthropic-ai/playwright-cli@latest
 ```
 
 ## インストール
@@ -34,13 +32,7 @@ claude plugin add /path/to/slides
 
 ### エクスポート
 
-```bash
-bash scripts/marp_export.sh slides.md --format pdf
-bash scripts/marp_export.sh slides.md --format html --output preview.html
-bash scripts/marp_export.sh slides.md --format pptx
-bash scripts/marp_export.sh slides.md --format png
-bash scripts/marp_export.sh slides.md --format images --output ./slides/
-```
+PDF / HTML / PPTX / PNG 形式へのエクスポートに対応しています。エクスポート形式を指示すれば、スキルが自動的に処理します。
 
 ## テーマ
 
@@ -61,7 +53,7 @@ paginate: true
 | Tech      | `tech.css`        | ダークモード、グロー効果         | 技術プレゼン、開発者向け       |
 | Minimal   | `minimal.css`     | タイポグラフィ重視、余白活用     | 汎用、シンプルな発表           |
 
-エクスポートスクリプト（`marp_export.sh`）が `--theme-set` で自動的にテーマディレクトリを登録するため、追加設定は不要です。
+テーマは自動的に適用されるため、追加設定は不要です。
 
 ## レイアウト
 
